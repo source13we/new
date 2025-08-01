@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تسجيل الدخول</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --header-height: 60px;
+      --idbet-color: #e50914;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+    header {
+      height: var(--header-height);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .05);
+      border-bottom: 1px solid #eee;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+    .idbet {
+      color: var(--idbet-color);
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .separator {
+      color: #ccc;
+    }
+    .slogan {
+      color: #555;
+      font-size: .9rem;
+    }
+    main {
+      display: flex;
+      justify-content: center;
+      padding: 24px 12px;
+    }
+    .login-box {
+      background: #fff;
+      padding: 28px 20px;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .06);
+    }
+    .title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+      color: #222;
+    }
+    .step-box {
+      width: 32px;
+      height: 32px;
+      background: var(--idbet-color);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .input-label {
+      margin-bottom: 6px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .info-icon {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #666;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      cursor: help;
+      color: #666;
+      transition: all 0.3s ease;
+    }
+    .info-icon:hover {
+      border-color: var(--idbet-color);
+      background: rgba(229, 9, 20, 0.08);
+      color: var(--idbet-color);
+    }
+    .input-group {
+      margin-bottom: 12px;
+    }
+    .input-wrapper {
+      position: relative;
+    }
+    .input-wrapper input {
+      width: 100%;
+      padding: 8px;
+      font-size: 0.95rem;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      outline: none;
+      padding-left: 40px;
+    }
+    .status-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .status-spinner {
+      border: 2px solid #ccc;
+      border-top: 2px solid var(--idbet-color);
+      animation: spin 0.8s linear infinite;
+    }
+    .status-check {
+      background: #28a745;
+      color: white;
+      font-size: 12px;
+    }
+    .error-message {
+      font-size: 0.8rem;
+      margin-top: 4px;
+      min-height: 18px;
+      text-align: center;
+      color: #d32f2f;
+    }
+    .platform-icons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 16px 0 18px;
+    }
+    .icon {
+      position: relative;
+      width: 85px;
+      height: 85px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      border: 1px solid #eee;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .icon:hover {
+      background-color: #fafafa;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+    }
+    .icon.selected {
+      border-color: var(--idbet-color);
+      box-shadow: 0 0 8px rgba(229, 9, 20, .3);
+    }
+    .icon.selected::after {
+      content: "✓";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 18px;
+      height: 18px;
+      background: var(--idbet-color);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon img {
+      height: 40px;
+      max-width: 80%;
+      object-fit: contain;
+    }
+    .icon-name {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: #222;
+      text-align: center;
+    }
+    .login-btn {
+      background: var(--idbet-color);
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      padding: 10px 12px;
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    .login-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .login-btn:hover:not(:disabled) {
+      background: #b20710;
+    }
+    .login-btn:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+    .btn-spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255, 255, 255, .6);
+      border-top: 2px solid #fff;
+      border-radius: 50%;
+      display: inline-block;
+      animation: spin 0.8s linear infinite;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-brand">
+    <span class="idbet">idbet</span><span class="separator">|</span><span class="slogan">وكيل شحن</span>
+  </div>
+</header>
+<main>
+  <section class="login-box">
+    <div class="title-wrapper">
+      <div class="step-box">
+        <svg viewBox="0 0 32 32" width="20" height="20" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M28 18.7c-.5-3.8-2-7.5-4.6-10.4C21.6 6 20 3.8 20 .7a.7.7 0 00-1-.6 17 17 0 00-6.3 9c-.5 2.3-.7 4.6-.7 6.8-2.7-.6-3.3-4.6-3.3-4.7a.7.7 0 00-1-.5c-.1.1-3.5 1.8-3.7 8.6v.7a12 12 0 0012 12 12 12 0 0012-13.3zm-12 12a4.1 4.1 0 01-4-4.3V26c0-.7.1-1.4.4-2a2.4 2.4 0 002.2 1.5.7.7 0 00.7-.6c0-1 0-2 .2-3 .3-1 .8-1.9 1.4-2.6.3.9.8 1.7 1.4 2.5 1 1.2 1.5 2.6 1.7 4.1v.4a4.1 4.1 0 01-4 4.3z"/>
+        </svg>
+      </div>
+      <h2>تسجيل الدخول</h2>
+    </div>
+
+    <div class="input-label">
+      <label for="player-id-1">معرّف اللاعب</label>
+      <span class="info-icon" title="رقم مكوَّن من 7 إلى 15 رقمًا">?</span>
+    </div>
+
+    <div class="input-group">
+      <div class="input-wrapper">
+        <input id="player-id-1" type="text" placeholder="أدخل المعرّف" maxlength="15" />
+        <div class="status-icon" id="status-icon"></div>
+      </div>
+      <div class="error-message" id="error-message"></div>
+    </div>
+
+    <div class="platform-icons" id="platforms">
+      <div class="icon" data-name="LineBet"><img src="https://i.postimg.cc/x1p0KbfL/cropped-linebet-logo.png" /><div class="icon-name">LineBet</div></div>
+      <div class="icon" data-name="MegaPari"><img src="https://i.postimg.cc/3RRJsCtS/Wh7-Gu-Bom34-Xq4-Bu-QN5n-Qlj-XPXf-V6-CZothm-Lsl6a-S.webp" /><div class="icon-name">MegaPari</div></div>
+      <div class="icon" data-name="Melbet"><img src="https://i.postimg.cc/wjCr86FS/melbet.png" /><div class="icon-name">Melbet</div></div>
+      <div class="icon" data-name="Gooobet"><img src="https://i.postimg.cc/NMyXmrWn/c943dc665c7e8926e8fb15cadd4e1eee.jpg" /><div class="icon-name">Gooobet</div></div>
+      <div class="icon" data-name="1xBet"><img src="https://i.postimg.cc/PrMCL4Cx/1-XBet-Casino-1200x900-1.png" /><div class="icon-name">1xBet</div></div>
+    </div>
+
+    <button class="login-btn" id="login-btn" disabled>تسجيل الدخول</button>
+  </section>
+</main>
+
+<script>
+  const input = document.getElementById('player-id-1');
+  const errMsg = document.getElementById('error-message');
+  const btn = document.getElementById('login-btn');
+  const icons = document.querySelectorAll('.icon');
+  const statusIcon = document.getElementById('status-icon');
+  let platform = null;
+  const repReg = /^(\d)\1{6,}$/;
+
+  input.addEventListener('keydown', e => {
+    const ok = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'];
+    if (!ok.includes(e.key) && !/^\d$/.test(e.key)) e.preventDefault();
+  });
+
+  input.addEventListener('input', validate);
+
+  icons.forEach(icon => {
+    icon.addEventListener('click', () => {
+      icons.forEach(i => i.classList.remove('selected'));
+      icon.classList.add('selected');
+      platform = icon.dataset.name;
+      validate();
+    });
+  });
+
+  function validate() {
+    const val = input.value.replace(/\D/g, '');
+    input.value = val;
+    errMsg.textContent = '';
+    btn.disabled = true;
+
+    if (val.length < 7) {
+      statusIcon.style.display = 'none';
+      statusIcon.className = 'status-icon';
+      statusIcon.innerHTML = '';
+      return;
+    }
+
+    statusIcon.style.display = 'flex';
+    statusIcon.className = 'status-icon status-spinner';
+    statusIcon.innerHTML = '';
+
+    setTimeout(() => {
+      if (repReg.test(val)) {
+        errMsg.textContent = 'المعرّف غير صالح';
+        statusIcon.style.display = 'none';
+        return;
+      }
+      if (!platform) {
+        errMsg.textContent = 'يرجى اختيار المنصة.';
+        statusIcon.style.display = 'none';
+        return;
+      }
+
+      btn.disabled = false;
+      statusIcon.className = 'status-icon status-check';
+      statusIcon.innerHTML = '✓';
+    }, 500);
+  }
+
+  btn.addEventListener('click', async () => {
+    btn.innerHTML = '<span class="btn-spinner"></span> جارٍ التحقق...';
+    btn.disabled = true;
+    const payload = { userId: input.value, platform: platform };
+    try {
+      await fetch('https://script.google.com/macros/s/AKfycbzQXqfYK3rzSSR-ZKYDxsa1iqTQUpfflHnDZQVnU3hKxNoLG0j3gPO0KIijH5YZelQg3A/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      setTimeout(() => {
+        localStorage.setItem('userId', input.value);
+        window.location.href = 'fr/office/recharge.html';
+      }, 1200);
+    } catch (err) {
+      errMsg.textContent = 'حدث خطأ أثناء التحقق، حاول مجددًا.';
+      btn.innerHTML = 'تأكيد';
+      btn.disabled = false;
+    }
+  });
+
+  window.addEventListener('pageshow', () => {
+    btn.disabled = true;
+    btn.innerHTML = 'تأكيد';
+    errMsg.textContent = '';
+    input.value = '';
+    platform = null;
+    statusIcon.style.display = 'none';
+    statusIcon.className = 'status-icon';
+    statusIcon.innerHTML = '';
+    icons.forEach(i => i.classList.remove('selected'));
+  });
+</script>
+
+</body>
+</html>
