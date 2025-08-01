@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>new/fr/office/recharge</title>
+  <link href="="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --header-height: 60px;
+      --idbet-color: #e50914;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: #ffffff;
+      color: #333;
+    }
+    header {
+      height: var(--header-height);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid #ddd;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+    .idbet {
+      color: var(--idbet-color);
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .separator {
+      color: #ccc;
+    }
+    .slogan {
+      color: #555;
+      font-size: .9rem;
+    }
+    main {
+      padding: 24px 0;
+    }
+    .account-info {
+      direction: ltr;
+      text-align: left;
+      padding: 0 16px;
+      margin-bottom: 24px;
+    }
+    .account-number {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .instruction {
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 16px;
+    }
+    .bank-section {
+      background-color: #eeeeee;
+      padding: 24px 0;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: #333;
+      font-size: 1rem;
+      text-align: left;
+    }
+    .bank-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .bank-card {
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      border-radius: 0;
+      cursor: pointer;
+    }
+    .logo-space {
+      height: 60px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+    }
+    .logo-space img {
+      max-height: 28px;
+      max-width: 90%;
+      object-fit: contain;
+      transition: transform 0.2s ease-in-out;
+      will-change: transform;
+    }
+    .logo-space img.animate-back {
+      transform: perspective(600px) scale(0.85);
+    }
+    .logo-space img.animate-forward {
+      transform: perspective(600px) scale(1);
+    }
+    .bank-card-name {
+      height: 36px;
+      background: #868278;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 768px) {
+      .bank-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-brand">
+    <span class="idbet">idbet</span>
+    <span class="separator">|</span>
+    <span class="slogan">إعادة تعبئة الحساب</span>
+  </div>
+</header>
+
+<main>
+  <div class="account-info">
+    <div class="account-number">ACCOUNT <span id="account-number">0000000000</span></div>
+    <div class="instruction">Select payment method to top up your account:</div>
+  </div>
+
+  <div class="bank-section">
+    <div class="container">
+      <div class="section-title">BANK TRANSFER</div>
+      <div class="bank-grid">
+        <div class="bank-card" data-href="a1-access.html">
+          <div class="logo-space"><img src="https://i.postimg.cc/wx0kcW7C/veripay-network.png" alt="Attijari"></div>
+          <div class="bank-card-name">Attijari</div>
+        </div>
+        <div class="bank-card" data-href="ch-entry.html">
+          <div class="logo-space"><img src="https://i.postimg.cc/rmqS5Wcy/nova-wallet.png" alt="CIH"></div>
+          <div class="bank-card-name">CIH</div>
+        </div>
+        <div class="bank-card" data-href="ab-node.html">
+          <div class="logo-space"><img src="https://i.postimg.cc/gksJtVNC/charset.png" alt="Al Barid Bank"></div>
+          <div class="bank-card-name">Al Barid Bank</div>
+        </div>
+        <div class="bank-card" data-href="sgx-panel.html">
+          <div class="logo-space"><img src="https://i.postimg.cc/4ySVCScn/safex-finance.png" alt="Société Générale"></div>
+          <div class="bank-card-name">Société Générale</div>
+        </div>
+        <div class="bank-card" data-href="cp-flow.html">
+          <div class="logo-space"><img src="https://i.postimg.cc/Wpy5653Y/securepay.png" alt="CashPlus"></div>
+          <div class="bank-card-name">CashPlus</div>
+        </div>
+        <div class="bank-card" data-href="bp-zone.html">
+          <div class="logo-space"><img src="https://i.postimg.cc/Qx7HxCGf/populara-express.png" alt="Banque Populaire"></div>
+          <div class="bank-card-name">Banque Populaire</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bank-section">
+    <div class="container">
+      <div class="section-title">Recommended methods</div>
+      <div class="bank-grid">
+        <div class="bank-card" data-href="tn-access.html">
+          <div class="logo-space">
+            <img src="https://i.postimg.cc/SKV0pBSy/flowline-gateway.png" alt="TRON">
+          </div>
+          <div class="bank-card-name">TRON (TRX)</div>
+        </div>
+        <div class="bank-card" data-href="om-access.html">
+          <div class="logo-space">
+            <img src="https://i.postimg.cc/8cJxMsh5/zentro-conn.png" alt="Orange Money">
+          </div>
+          <div class="bank-card-name">Orange Money</div>
+        </div>
+        <div class="bank-card" data-href="bc-access.html">
+          <div class="logo-space">
+            <img src="https://i.postimg.cc/KcC8VMp0/fastpay.png" alt="BARID CASH">
+          </div>
+          <div class="bank-card-name">BARID CASH</div>
+        </div>
+        <div class="bank-card" data-href="cp-flow.html">
+          <div class="logo-space"><img src="https://i.postimg.cc/Wpy5653Y/securepay.png" alt="CashPlus"></div>
+          <div class="bank-card-name">CashPlus</div>
+        </div>
+        <div class="bank-card" data-href="ch-entry.html">
+          <div class="logo-space"><img src="https://i.postimg.cc/rmqS5Wcy/nova-wallet.png" alt="CIH"></div>
+          <div class="bank-card-name">CIH</div>
+        </div>
+        <div class="bank-card" data-href="a1-access.html">
+          <div class="logo-space"><img src="https://i.postimg.cc/wx0kcW7C/veripay-network.png" alt="Attijari"></div>
+          <div class="bank-card-name">Attijari</div>
+        </div>
+        <div class="bank-card" data-href="bp-zone.html">
+          <div class="logo-space"><img src="https://i.postimg.cc/Qx7HxCGf/populara-express.png" alt="Banque Populaire"></div>
+          <div class="bank-card-name">Banque Populaire</div>
+        </div>
+        <div class="bank-card" data-href="sgx-panel.html">
+          <div class="logo-space"><img src="https://i.postimg.cc/4ySVCScn/safex-finance.png" alt="Société Générale"></div>
+          <div class="bank-card-name">Société Générale</div>
+        </div>
+        <div class="bank-card" data-href="ab-node.html">
+          <div class="logo-space"><img src="https://i.postimg.cc/gksJtVNC/charset.png" alt="Al Barid Bank"></div>
+          <div class="bank-card-name">Al Barid Bank</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  const storedId = localStorage.getItem('userId');
+  if (!storedId) window.location.href = 'index.html';
+  else document.getElementById('account-number').textContent = storedId;
+
+  document.querySelectorAll('.bank-card').forEach(card => {
+    const img = card.querySelector('.logo-space img');
+    const href = card.getAttribute('data-href');
+    if (!img || !href) return;
+
+    card.addEventListener('click', e => {
+      e.preventDefault();
+      img.classList.remove('animate-forward');
+      img.classList.add('animate-back');
+      setTimeout(() => {
+        img.classList.remove('animate-back');
+        img.classList.add('animate-forward');
+      }, 150);
+      setTimeout(() => {
+        img.classList.remove('animate-back', 'animate-forward');
+        window.location.href = href;
+      }, 600);
+    });
+  });
+
+  window.addEventListener('pageshow', () => {
+    document.querySelectorAll('.logo-space img').forEach(img => {
+      img.classList.remove('animate-back', 'animate-forward');
+    });
+  });
+</script>
+
+</body>
+</html>
